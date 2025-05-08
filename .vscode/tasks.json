@@ -1,0 +1,95 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Session 1: Micro",
+            "type": "shell",
+            "command": "MicroXRCEAgent udp4 -p 8888",
+            "presentation": {
+                "panel": "dedicated",
+                "group": "terminals"
+            }
+        },
+        {
+            "label": "Session 2: PX4 SITL quadcopter",
+            "type": "shell",
+            "command": "bash",
+            "args": ["-c", "cd ~/PX4-Autopilot && make px4_sitl gz_x500"],
+            "presentation": {
+                "panel": "dedicated",
+                "group": "terminals"
+            }
+        },
+        {
+            "label": "Session 2: PX4 SITL fixed wing",
+            "type": "shell",
+            "command": "bash",
+            "args": ["-c", "cd ~/PX4-Autopilot && make px4_sitl gz_advanced_plane"],
+            "presentation": {
+                "panel": "dedicated",
+                "group": "terminals"
+            }
+        },
+
+        {
+            "label": "Session 2: PX4 SITL standard vtol",
+            "type": "shell",
+            "command": "bash",
+            "args": ["-c", "cd ~/PX4-Autopilot/ && make px4_sitl gz_standard_vtol"],
+            "presentation": {
+                "panel": "dedicated",
+                "group": "terminals"
+            }
+        },
+        {
+            "label": "Session 3: QGroundControl",
+            "type": "shell",
+            "command": "QGroundControl",
+            "presentation": {
+                "panel": "dedicated",
+                "group": "terminals"
+            }
+        },
+        {
+            "label": "Session 4: Offboard Control Quadcopter",
+            "type": "shell",
+            "command": "bash",
+            "args": ["-c", "cd ~/vtol && source /opt/ros/humble/setup.bash && source install/local_setup.bash && python3 ~/src/vtol_controller/src/quadcopter/.py"],
+            "presentation": {
+                "panel": "dedicated",
+                "group": "terminals"
+            }
+        },
+        {
+            "label": "Session 4: Offboard Control Fixed Wing",
+            "type": "shell",
+            "command": "bash",
+            "args": ["-c", "cd ~/vtol && source /opt/ros/humble/setup.bash && source install/local_setup.bash && python3 ~/src/vtol_controller/src/quadcopter/.py"],
+            "presentation": {
+                "panel": "dedicated",
+                "group": "terminals"
+            }
+        },
+        {
+            "label": "Session 6: record",
+            "type": "shell",
+            "command": "bash",
+            "args": ["-c", "source /opt/ros/humble/setup.bash && source ~/vtol/install/local_setup.bash && cd /home/rosusr/vtol/src/vtol_controller  && ros2 topic echo --csv /fmu/out/sensor_combined > plot/asmc.csv"],
+            "presentation": {
+                "panel": "dedicated",
+                "group": "terminals"
+            }
+        }
+        ,
+        {
+            "label": "Session 7: record",
+            "type": "shell",
+            "command": "bash",
+            "args": ["-c", "source /opt/ros/humble/setup.bash && source ~/vtol/install/local_setup.bash && cd /home/rosusr/vtol/src/vtol_controller  && ros2 topic echo --csv /fmu/out/vehicle_attitudef > plot/asmc.csv"],
+            "presentation": {
+                "panel": "dedicated",
+                "group": "terminals"
+            }
+        }
+    ]
+}
